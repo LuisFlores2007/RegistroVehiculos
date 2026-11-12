@@ -1,4 +1,6 @@
 
+import puce.edu.ec.registroVehiculos.vehiculo;
+
 import java.util.Scanner;
 void main() {
     Scanner sc = new Scanner(System.in);
@@ -13,7 +15,7 @@ void main() {
         IO.println("3. Salir");
         IO.println("Ingresar una opcion: ");
 
-        if (sc.hasNextInt()) {
+        if (!sc.hasNextInt()) {
             IO.println("==INGRESE UNA OPCION VALIDA==");
             sc.nextLine();
             continue;
@@ -21,6 +23,34 @@ void main() {
         opcion = sc.nextInt();
         sc.nextLine();
 
+        switch (opcion){
+            case 1:
+                if (cantidad < 10) {
+                    IO.println("Ingrese la marca del vehiculo:");
+                    String marca = sc.nextLine();
+                    IO.println("Ingrese la modelo del vehiculo:");
+                    String modelo = sc.nextLine();
+                    IO.println("Ingrese el año del vehiculo:");
+                    int ano = sc.nextInt();
+                    IO.println("Ingrese la placa del vehiculo:");
+                    String placa = sc.nextLine();
+                    vehiculo vehiculo1 = new vehiculo(marca, modelo, ano, placa);
+                    vehiculos[cantidad] = vehiculo1;
+                    cantidad++;
+                    IO.println("Vehiculo registrado");
+                }else {
+                    IO.println("No hay mas espacio para registrar mas vehiculos");
+                }
+                break;
+            case 2:
+
+                break;
+            default:
+                IO.println("OPCION INCORRECTA ");
+                break;
+
+        }
+        sc.close();
     }
 
 
