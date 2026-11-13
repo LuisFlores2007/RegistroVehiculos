@@ -45,7 +45,7 @@ void main() {
             case 2:
                     IO.println("LISTADO DE VEHICULOS");
                     if (cantidad == 0){
-                        IO.println("=====No hay vehiculos registrados====");
+                        IO.println("=====NO EXISTEN VEHICULOS REGISTRADOS====");
                     }
                     for (int i = 0; i < cantidad; i++) {
                         IO.println("Vehiculo " + (i + 1));
@@ -54,6 +54,9 @@ void main() {
                         IO.println("Año: " + vehiculos[i].ano());
                         IO.println("Placa: " + vehiculos[i].placa());
                     }
+                break;
+            case 3:
+                    IO.println("===FIN DEL PROGRAMA GRACIAS POR USARLO===");
                 break;
             default:
                 IO.println("OPCION INCORRECTA ");
