@@ -4,7 +4,7 @@ import puce.edu.ec.registroVehiculos.vehiculo;
 import java.util.Scanner;
 void main() {
     Scanner sc = new Scanner(System.in);
-    vehiculo[] vehiculos = new vehiculo[10];
+    vehiculo[] vehiculos = new vehiculo[5];
     int cantidad = 0;
     int opcion = 0;
 
@@ -25,19 +25,29 @@ void main() {
 
         switch (opcion){
             case 1:
-                if (cantidad < 10) {
+                if (cantidad < 5) {
                     IO.println("Ingrese la marca del vehiculo:");
                     String marca = sc.nextLine();
                     IO.println("Ingrese la modelo del vehiculo:");
                     String modelo = sc.nextLine();
                     IO.println("Ingrese el año del vehiculo:");
                     int ano = sc.nextInt();
+                    sc.nextLine();
+                    while (ano < 1900 || ano > 2026){
+                        IO.println("==INGRESE UN AÑO ENTRE 1900 Y 2026==");
+                        while (!sc.hasNextInt()) {
+                            IO.println("==SOLO SE PERMITE INGRESAR NUMEROS==");
+                            sc.nextLine();
+                        }
+                        ano = sc.nextInt();
+                        sc.nextLine();
+                    }
                     IO.println("Ingrese la placa del vehiculo:");
                     String placa = sc.nextLine();
                     vehiculo vehiculo1 = new vehiculo(marca, modelo, ano, placa);
                     vehiculos[cantidad] = vehiculo1;
                     cantidad++;
-                    IO.println("Vehiculo registrado");
+                    IO.println("===VEHICULO REGISTRADO===");
                 }else {
                     IO.println("No hay mas espacio para registrar mas vehiculos");
                 }
@@ -59,7 +69,7 @@ void main() {
                     IO.println("===FIN DEL PROGRAMA GRACIAS POR USARLO===");
                 break;
             default:
-                IO.println("OPCION INCORRECTA ");
+                IO.println("====OPCION INCORRECTA====");
                 break;
 
         }
