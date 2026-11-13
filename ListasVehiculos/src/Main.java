@@ -43,14 +43,24 @@ void main() {
                 }
                 break;
             case 2:
-
+                    IO.println("LISTADO DE VEHICULOS");
+                    if (cantidad == 0){
+                        IO.println("=====No hay vehiculos registrados====");
+                    }
+                    for (int i = 0; i < cantidad; i++) {
+                        IO.println("Vehiculo " + (i + 1));
+                        IO.println("Marca: " + vehiculos[i].marca());
+                        IO.println("Modelo: " + vehiculos[i].modelo());
+                        IO.println("Año: " + vehiculos[i].ano());
+                        IO.println("Placa: " + vehiculos[i].placa());
+                    }
                 break;
             default:
                 IO.println("OPCION INCORRECTA ");
                 break;
 
         }
-        sc.close();
+
     }
 
 
